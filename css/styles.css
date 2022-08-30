@@ -11275,3 +11275,24 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+#videoo {
+  margin: 0%;
+  display: block;
+  position: flex;
+  width: 100%;
+}
+
+#myVideo {
+  filter:blur(2.5px);
+  background: rgb(255, 255, 255);
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+}
+
