@@ -13,7 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="GetFromLocalStorage()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -352,10 +352,16 @@
                 </div>
                     </div>
 
+
+
+
                     
                     
                     
         </section>
+
+
+        <button onclick="RetrieveItem(this, 'logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
