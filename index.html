@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>TRACTORSHOP</title>
+        <title>Main | TRACTORSHOP</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -13,7 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="GetFromLocalStorage()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -34,11 +34,11 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                       <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                        </button></a>
                     </form>
                 </div>
             </div>
@@ -53,7 +53,7 @@
            <div class="blurry">
 
             <video style=" margin: 0%; display: block; position: flex; width: 100%;" autoplay muted loop id="myVideo">
-                <source src="images/backgroundvideo2.mp4" type="video/mp4">
+                <source src="images/video.mp4" type="video/mp4">
         
             Your browser does not support HTML5 video.
           </video>
@@ -64,8 +64,8 @@
             </div>
         </header>
 
-        <div class="overlay" >
-            <h1>THE BEST TRACTOR SHOP EVER</h1>
+        <div class="overlay"  >
+            <h1 class="display-1 fw-bolder">THE BEST TRACTOR SHOP EVER</h1>
         </div>
 
         <!-- Section-->
@@ -87,190 +87,269 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor2.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Master Tractor Model X</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+
+                                <!-- Button trigger modal -->
+
+
+                                <div class="modal" tabindex="-1" id="pop1">
+                                    <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <img style="width: 30%;" src="images/logo.svg">
+
+                        <!--<h5 class="modal-title">TractorShop</h5>-->
+
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div style="margin-left: 3%;" class="content">
+                                                <div class="shop-bg"></div>
+                                                <div class="pop-up clearfix">
+                                                  <!--GALLERY-->
+                                                  <div style=" opacity: 0.9; margin-left: 19%;" style="width: 20%;" class="pics">
+                                                    <span class="main-img"><img src="images/Tractor1.jpg"></span>
+                                                  </div>
+                                                  <!-- PRODUCT INFORMATION -->
+                                                  <div  style="margin-top: 5%;" class="product">
+                                                    <!--category-breadcrumb-->
+                                                    <span style="margin-left: 18%;" class="category">Tractors</span>
+                                                    <!--stock-label-->
+                                                    <h1 style="margin-left: 18%;">Blue Master X5000</h1>
+                                                    <!--PRICE-RATING-REVIEW-->
+                                                    <div style="margin-left: 18%;" class="block-price-rating clearfix">
+                                                      <!--price-->
+                                                      <div class="block-price clearfix">
+                                                        <div class="price-new clearfix">
+                                                          <span class="price-new-dollar">€900.000</span>
+                                                        </div>
+                                                        <div class="price-old clearfix">
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                   
+                                                    <!--PRODUCT DESCRIPTION-->
+                                                    <div class="descr">
+                                                      <p  style="margin-left: 31%;">Vestibulum tempus elit vitae enim porttitor interdum. Nulla rhoncus egestas ante non lacinia. In auctor, mi vel bibendum volutpat, lectus dolor vehicula ante.</p>
+                                                    </div>
+                                                    <!--SELECT BLOCK-->
+                                                    <div class="block-select clearfix">
+                                                      <form style="margin-left: 5%;">
+                                                        <div style="margin-bottom: 10%;" class="select-color">
+                                                          <span style="margin-left: 29.5%;" >Available colours</span>
+                                                          <select  style="margin-left: 29.5%;" class="color">
+                                                            <option>Blue</option>
+                                                          </select>
+                                                        </div>
+                                                        <!--BUTTON-->
+                                                        <button style="width: 20%; margin-left: 15%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;" class="btn btn-primary"><img src="">Add to cart</button>
+                                                      </form>
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        </div>
+                                      </div>
                                     </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">€6.000</span>
-                                    €5.000
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                  </div>
+
+                                  <button style="background-color: white; border: solid black 1px;" type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#pop1">
+                                      <div class="text-center"><a style="color: rgb(0, 0, 0); text-decoration: none;">Read more</a></div></button>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor3.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">€50</span>
-                                    €25
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor4.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Playful Master Tractor</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor2.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Master Tractor Model X</h5>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through">€6.000</span>
+                                        €5.000
                                     </div>
-                                    <!-- Product price-->
-                                    €150
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                                 </div>
                             </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor5.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Mean Green Machine</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">€300.000</span>
-                                    €200.000
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor6.webp" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Smurf Tractor</h5>
-                                    <!-- Product price-->
-                                    €120.000 - €280.000
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor7.webp" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Beast on Wheels</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor3.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Sale Item</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through">€50</span>
+                                        €25
                                     </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">€500.000</span>
-                                    €450.000
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="images/Tractor8.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Bumblebee X250</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor4.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Playful Master Tractor</h5>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        €150
                                     </div>
-                                    <!-- Product price-->
-                                    €250.000
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                                 </div>
                             </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor5.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Mean Green Machine</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through">€300.000</span>
+                                        €200.000
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor6.webp" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Smurf Tractor</h5>
+                                        <!-- Product price-->
+                                        €120.000 - €280.000
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor7.webp" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Beast on Wheels</h5>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through">€500.000</span>
+                                        €450.000
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="images/Tractor8.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Bumblebee X250</h5>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        €250.000
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                    </div>
+
+
+
+
+                    
+                    
+                    
         </section>
+
+
+        <button onclick="RetrieveItem(this, 'logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
