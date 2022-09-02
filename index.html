@@ -89,12 +89,36 @@
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
                                 <!-- Button trigger modal -->
-
-
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pop1">
+                                    Launch demo modal
+                                  </button>
+                              
                                 <div class="modal" tabindex="-1" id="pop1">
                                     <div class="modal-dialog modal-lg">
                                       <div class="modal-content">
                                         <div class="modal-header">
+
+                                          <h5 class="modal-title">Modal title</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="content">
+                                                <div class="shop-bg"></div>
+                                                <div class="pop-up clearfix">
+                                                  <!--GALLERY-->
+                                                  <div style="width: 20%;" class="pics">
+                                                    <span class="main-img"><img src="images/Tractor1.jpg"></span>
+                                                  </div>
+                                                  <!-- PRODUCT INFORMATION -->
+                                                  <div class="product">
+                                                    <!--category-breadcrumb-->
+                                                    <span class="category">Tractors</span>
+                                                    <!--stock-label-->
+                                                    <span class="stock">In Stock</span>
+                                                    <h1>Blue Master X5000</h1>
+                                                    <!--PRICE-RATING-REVIEW-->
+                                                    <div class="block-price-rating clearfix">
+
 
                                             <img style="width: 30%;" src="images/logo.svg">
 
@@ -119,6 +143,7 @@
                                                     <h1 style="margin-left: 3%; margin-top: 47%;">Blue Master X5000</h1>
                                                     <!--PRICE-RATING-REVIEW-->
                                                     <div style="margin-left: 18%; margin-top: 25%;" class="block-price-rating clearfix">
+
                                                       <!--price-->
                                                       <div class="block-price clearfix">
                                                         <div class="price-new clearfix">
@@ -127,24 +152,48 @@
                                                         <div class="price-old clearfix">
                                                         </div>
                                                       </div>
+                                                      <!--rating-->
+                                                      <div class="block-rating clearfix">
+                                                        <!--review-->
+                                                        <span class="review">257 Reviews</span>
+                                                        <span class="rating"><img src="http://thrivedigital.wpengine.com/wp-content/uploads/2015/03/Review-Stars.png"></span>
+                                                      </div>
                                                     </div>
-                                                   
+                                                    <!-- rating <ul class="rating">
+                                                      <li></li>
+                                                      <li></li>
+                                                      <li></li>
+                                                      <li></li>
+                                                      <li></li>
+                                                    </ul> -->
                                                     <!--PRODUCT DESCRIPTION-->
                                                     
                                                     <div class="descr">
+
+                                                      <p>ggggggggggggggggggggggggggggggggg</p>
+
                                                       <p style="margin-left: 1%;">Vestibulum tempus elit vitae enim porttitor interdum. Nulla rhoncus egestas ante non lacinia. In auctor, mi vel bibendum volutpat, lectus dolor vehicula ante.</p>
+
                                                     </div>
                                                     <!--SELECT BLOCK-->
                                                     <div class="block-select clearfix">
                                                       <form>
                                                         <div class="select-color">
+
+                                                          <span>Only in stock</span>
+
                                                           <span>Available colours</span>
+
                                                           <select class="color">
                                                             <option>Blue</option>
                                                           </select> 
                                                         </div>
                                                         <!--BUTTON-->
+
+                                                        <button class="btn"><img src="">Add to cart</button>
+
                                                         <button style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;" class="btn btn-primary"><img src="">Add to cart</button>
+
                                                       </form>
                                                     </div>
                                                     </div>
@@ -152,9 +201,18 @@
                                                 </div>
                                               </div>
                                         </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
+
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+
                                   
                                   <button style="background-color: white; border: solid black 1px; width: 45%; margin-left: 27%; margin-bottom: 17%; padding: 2%; border-radius: 8px;" type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#pop1" >
                                     <div class="text-center"><a style="color: rgb(0, 0, 0); text-decoration: none;">Read more</a></div></button>
@@ -165,6 +223,7 @@
 
 
                               
+
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Sale badge-->
@@ -363,7 +422,7 @@
         </section>
 
 
-        <button onclick="RetrieveItem(this, 'logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>
+        <button onclick="RetrieveItem(this, 'images/logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
