@@ -53,7 +53,7 @@ function AddIdentifier()
 {
     //Genom att sätta splitArr till en blank array, lyckas vi undvika problemet där splitArr får till sig extra element efter den hämtas av "localstorage.GetItem".
     //Utan att "tömma" splitArr läggs extra objekt in i arrayen.
-    splitArr.length = 0;   
+    splitArr.length = 0;  
     console.log(splitArr); 
 
     for (let index = 0; index < listToStore.length; index++) {
@@ -101,7 +101,7 @@ function PrintCartItems()
         console.log(img);
 		list += "<tr><td>" + name + "</td>\n <td> <img src ='" + img + "'></td> </tr>\n";
     }
-    
+     
     document.getElementById('list').innerHTML = list;
 
 
