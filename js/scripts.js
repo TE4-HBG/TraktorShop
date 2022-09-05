@@ -103,9 +103,6 @@ function PrintCartItems()
     }
      
     document.getElementById('list').innerHTML = list;
-
-
-
 }
 
 

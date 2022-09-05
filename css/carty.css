@@ -177,7 +177,6 @@ address {
 
 ol,
 ul {
-  padding-left: 2rem;
 }
 
 ol,
@@ -602,8 +601,10 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 25%;
   height: auto;
+  display: inline-block;
+  margin-right: 5%;
 }
 
 .img-thumbnail {
@@ -11474,7 +11475,7 @@ img {
   background: #fafafa;
 }
 .cart .items .infoWrap {
-  display: table;
+  display: flex;
   width: 100%;
 }
 .cart .items .cartSection {
@@ -11518,6 +11519,13 @@ img {
 }
 .cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
   text-align: center;
+  margin-left: auto;
+  margin-right: 2%;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  display: flex;
+  
 }
 .cart .items .cartSection.qtyWrap p, .cart .items .cartSection.prodTotal p {
   font-weight: bold;
