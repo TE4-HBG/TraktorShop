@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="PrintCartItems()">
+<body onload="PrintCartItems2()" onload="PrintCardItems()">
   <script> GetFromLocalStorage()</script>
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -87,36 +87,11 @@
       <h1>My Cart</h1>
       <a href="products.html" class="continue">Continue Shopping</a>
     </div>
-    <div class="cart">
+    <div class="cart" id="cart">
 
-      <ul class="cartWrap">
-        <li class="items even">
-          <div class="infoWrap">
-
-            <div class="img-fluid">
-              <img src="images/Tractor1.jpg">
-            </div>
-            <div class="cartSection">
-              <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-              <h3>Item Name 1</h3>
-              <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-            </div>
-            
-            <div class="prodTotal cartSection">
-              <p>$15.00</p>
-            </div>
-            <div class="cartSection removeWrap">
-              <a href="#" class="remove">x</a>
-            </div>
-          </div>
-          <hr>
-        </li>
-
-
-
-        <!--<li class="items even">Item 2</li>-->
-
-      </ul>
+      
+    
+      
     </div>
 
     <div class="subtotal cf">
