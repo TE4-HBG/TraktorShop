@@ -111,12 +111,11 @@ function PrintCartItems2() {
         list += '<ul class="cartWrap">' +
         '<li class="items even">' +
         '<div class="infoWrap">' +
-
         '<div class="img-fluid">' +
-        '<img src="images/Tractor1.jpg">' +
+        '<img src="'+img+'">' +
         '</div>' +
         '<div class="cartSection">' +
-        '<h3>'+name+ '</h3>' +
+        '<h3>'+name+'</h3>' +
         '<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
         '</div>' +
         '<div class="prodTotal cartSection">' +
