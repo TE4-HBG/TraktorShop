@@ -17,8 +17,8 @@
 
 </head>
 
-<body onload="PrintCartItems2()">
-  <script> GetFromLocalStorage()</script>
+<body onload="InitCart()">
+  <script>GetFromLocalStorage</script>
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
@@ -43,11 +43,11 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex"> 
           <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
             <i class="bi-cart-fill me-1"></i>
             Cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            <span class="badge bg-dark text-white ms-1 rounded-pill" id="itemNumberDisplay">0</span>
             </button></a>
         </form>
       </div>
@@ -65,8 +65,8 @@
 
 
 
-  <!-- Html of functioning cart-->
-  <div class="container">
+  <!-- Html of old cart--> 
+  <!-- <div class="container">
     <div class="row">
       <div class="col-5">
         <form name=ShoppingList>
@@ -76,10 +76,10 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>  -->
 
 
-  <!-- HTML to be intregrated -->
+  <!-- HTML intregrated -->
 
   <div class="wrap cf">
     <h1 class="projTitle">Shopping Cart</h1>
@@ -133,7 +133,7 @@
 
   </script> -->
 
-
+  
 </body>
 
 </html>

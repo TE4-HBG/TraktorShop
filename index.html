@@ -13,14 +13,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="js/scripts.js"></script>
+    
 </head>
 
-<body>
+<body onload="GetFromLocalStorage()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!"><img src="images/logo.svg"></a>
+            <a class="navbar-brand" href="#!"><img src="images/logo.svg" onclick="RetrieveItem(this, 'images/logo.png')" name="Generic Tractor"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -45,15 +45,13 @@
                     <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill" id="itemNumberDisplay">0</span>
 
                         </button></a>
                 </form>
             </div>
         </div>
     </nav>
-
-    <script> GetFromLocalStorage()</script>
 
     <!-- Header-->
     <header style="overflow: hidden; height: 40vh;" class="bg-dark opacity-50">
@@ -285,7 +283,6 @@
                                                         </div>
                                                         <!--SELECT BLOCK-->
                                                         <div class="block-select clearfix">
-                                                            <form>
                                                                 <div class="select-color">
                                                                     <span>Available colours</span>
                                                                     <select class="color">
@@ -297,7 +294,6 @@
                                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                                     class="btn btn-primary"><img src="">Add to
                                                                     cart</button>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -402,7 +398,6 @@
                                                         </div>
                                                         <!--SELECT BLOCK-->
                                                         <div class="block-select clearfix">
-                                                            <form>
                                                                 <div class="select-color">
                                                                     <span>Available colours</span>
                                                                     <select class="color">
@@ -414,7 +409,6 @@
                                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                                     class="btn btn-primary"><img src="">Add to
                                                                     cart</button>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -518,7 +512,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -530,7 +523,6 @@
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -641,7 +633,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -653,7 +644,6 @@
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -762,7 +752,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -774,7 +763,6 @@
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -884,7 +872,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -896,7 +883,6 @@
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -1001,7 +987,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -1013,7 +998,6 @@
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -1034,8 +1018,7 @@
 </div>
 
 <!--Product8--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    
-        <button onclick="RetrieveItem(this, 'images/logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>            
+               
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
@@ -1045,6 +1028,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
 
+        <script src="js/scripts.js"></script>
     </body>
 </html>
 
