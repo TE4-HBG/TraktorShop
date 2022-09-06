@@ -9,9 +9,10 @@
 
 
 class CartItem {
-    constructor(name, img) {
+    constructor(name, img, price) {
         this.name = name;
         this.img = img;
+        this.price = price;
     }
 }
 
@@ -27,8 +28,8 @@ function reCreateList(arr) {
     let newArr = [];
     let i = 0;
     while (i < arr.length) {
-        newArr.push(new CartItem(arr[i], arr[i + 1]))
-        i += 2;
+        newArr.push(new CartItem(arr[i], arr[i + 1], arr[i + 2]))
+        i += 3;
     }
     return newArr;
 }
@@ -37,8 +38,8 @@ let listToStore = [];
 let splitArr = [];
 let identifier = ',';
 
-function RetrieveItem(button, img) {
-    listToStore.push(new CartItem(button.getAttribute("name"), img));
+function RetrieveItem(button, img, price) {
+    listToStore.push(new CartItem(button.getAttribute("name"), img, price));
 
     AddIdentifier();
     SetToLocalStorage();
@@ -52,7 +53,7 @@ function AddIdentifier() {
 
     for (let index = 0; index < listToStore.length; index++) {
         const element = listToStore[index];
-        splitArr.push(element.name, identifier, element.img, identifier)
+        splitArr.push(element.name, identifier, element.img, identifier, element.price, identifier)
     }
 
     console.log(listToStore);
@@ -102,12 +103,15 @@ function PrintCartItems2() {
     var list = '';
     var name;
     var img;
+    var price;
     //code for implementing unique names and images
     for (var i = 0; i < listToStore.length; i++) {
         name = listToStore[i].name;
         console.log(name);
         img = listToStore[i].img;
         console.log(img);
+        price = listToStore[i].price;
+        console.log(price);
         list += '<ul class="cartWrap">' +
         '<li class="items even">' +
         '<div class="infoWrap">' +
@@ -116,10 +120,10 @@ function PrintCartItems2() {
         '</div>' +
         '<div class="cartSection">' +
         '<h3>'+name+'</h3>' +
-        '<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
+        //'<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
         '</div>' +
         '<div class="prodTotal cartSection">' +
-        '<p>$15.00</p>' +
+        '<p>'+price+'</p>' +
         '</div>' +
         '<div class="cartSection removeWrap">' +
         '<a href="#" class="remove">x</a>' +
@@ -131,7 +135,7 @@ function PrintCartItems2() {
         //Wall of text above is the html used for each cart item.
     }
 
-    document.getElementById('cart').innerHTML= list;
+    document.getElementById('cart').innerHTML = list;
 }
 
 
