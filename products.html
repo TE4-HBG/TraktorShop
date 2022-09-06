@@ -13,9 +13,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/scripts.js"></script>
 </head>
 
-<body>
+<body onload="GetFromLocalStorage()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
@@ -41,7 +42,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
+                    <a href="cart.html" <button  class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
@@ -78,7 +79,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor1.jpg', '€900')" name="Blue Master x5000" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -111,7 +115,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor2.jpg', '€5.000')" name="Master Tractor Model X" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -127,7 +134,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
+                                <h5 class="fw-bolder">Toy Tractor</h5>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">€50</span>
                                 €25
@@ -135,7 +142,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor3.jpg', '€25')" name="Toy Tractor" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -163,7 +173,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor4.jpg', ' €150')" name="Playful Master Tractor" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -187,7 +200,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor5.jpg', '€200.000')" name=">Mean Green Machine" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -202,12 +218,16 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Smurf Tractor</h5>
                                 <!-- Product price-->
-                                €120.000 - €280.000
+                                <span class="text-muted text-decoration-line-through">€280.000</span>
+                                €120.000
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor6.webp', '€120.000')" name="Smurf Tractor" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -239,7 +259,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor7.webp', '€450.000')" name="Beast on Wheels" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -267,7 +290,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor8.jpg', '€250.000')" name="Bumblebee X250" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -292,7 +318,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Bagger 288.png', ' €900.000')" name="Bagger 288" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -324,7 +353,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/eicher-tractor-241.png', '€5.000')" name="eicher-tractor-241" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -348,7 +380,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/future tractor.png', '€25.000.000')" name="Future Tractor" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -376,7 +411,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/tank tractor.png', '€150')" name="Tank Tractor" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -400,7 +438,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/tiers.png', '€200.000')" name="Tiers (3 set)" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -415,12 +456,16 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Lawn Mower?</h5>
                                 <!-- Product price-->
-                                €120.000 - €280.000
+                                <span class="text-muted text-decoration-line-through">€280.000</span>
+                                €120.000
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/tractor10.png', '€120.000')" name="Lawn Mower?" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -452,7 +497,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor7.webp', '€450.000')" name="Beast on Wheels" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -480,7 +528,10 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <div class="text-center"><button onclick="RetrieveItem(this, 'images/Tractor9.jpg', '€250.000')" name="Old Tractor behind a guys shack" 
+                                style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
+                                class="btn btn-primary">                                                    
+                                Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -498,7 +549,6 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
 </body>
 
 </html>

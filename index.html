@@ -13,13 +13,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    
 </head>
 
-<body>
+<body onload="GetFromLocalStorage()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!"><img src="images/logo.svg"></a>
+            <a class="navbar-brand" href="#!"><img src="images/logo.svg" onclick="RetrieveItem(this, 'images/logo.png')" name="Generic Tractor"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -28,15 +29,15 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutpage.html">About</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="products.html" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="!#">All Products</a></li>
+                            <li><a class="dropdown-item" href="products.html">All Products</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="!#">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="!#">New Arrivals</a></li>
+                            <li><a class="dropdown-item" href="products.html">Popular Items</a></li>
+                            <li><a class="dropdown-item" href="products.html">New Arrivals</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -44,14 +45,13 @@
                     <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill" id="itemNumberDisplay">0</span>
 
                         </button></a>
                 </form>
             </div>
         </div>
     </nav>
-
 
     <!-- Header-->
     <header style="overflow: hidden; height: 40vh;" class="bg-dark opacity-50">
@@ -163,7 +163,7 @@
                                                         </div>
                                                         <!--SELECT BLOCK-->
                                                         <div class="block-select clearfix">
-                                                            <form>
+                                                            
                                                                 <div class="select-color">
                                                                     <span>Available colours</span>
                                                                     <select class="color">
@@ -171,11 +171,11 @@
                                                                     </select>
                                                                 </div>
                                                                 <!--BUTTON-->
-                                                                <button
+                                                                <button onclick="RetrieveItem(this, 'images/Tractor1.jpg', '€900')" name="Blue Master x5000" 
                                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
-                                                                    class="btn btn-primary"><img src="">Add to
-                                                                    cart</button>
-                                                            </form>
+                                                                    class="btn btn-primary">                                                    
+                                                                    Add to cart</button>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -283,7 +283,6 @@
                                                         </div>
                                                         <!--SELECT BLOCK-->
                                                         <div class="block-select clearfix">
-                                                            <form>
                                                                 <div class="select-color">
                                                                     <span>Available colours</span>
                                                                     <select class="color">
@@ -291,11 +290,10 @@
                                                                     </select>
                                                                 </div>
                                                                 <!--BUTTON-->
-                                                                <button
+                                                                <button onclick="RetrieveItem(this, 'images/Tractor2.jpg', '€5.000')" name="Master Tractor X" 
                                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                                     class="btn btn-primary"><img src="">Add to
                                                                     cart</button>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -316,7 +314,7 @@
 
                 <!--Product2--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<!--Product3--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <!--Product3--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                  <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Sale badge-->
@@ -400,7 +398,6 @@
                                                         </div>
                                                         <!--SELECT BLOCK-->
                                                         <div class="block-select clearfix">
-                                                            <form>
                                                                 <div class="select-color">
                                                                     <span>Available colours</span>
                                                                     <select class="color">
@@ -408,11 +405,10 @@
                                                                     </select>
                                                                 </div>
                                                                 <!--BUTTON-->
-                                                                <button
+                                                                <button onclick="RetrieveItem(this, 'images/Tractor3.jpg', '€25')" name="Toy Tractor" 
                                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                                     class="btn btn-primary"><img src="">Add to
                                                                     cart</button>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -516,7 +512,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -524,11 +519,10 @@
                                                     </select>
                                                 </div>
                                                 <!--BUTTON-->
-                                                <button
+                                                <button onclick="RetrieveItem(this, 'images/Tractor4.jpg', '€150')" name="Playful Master Tractor" 
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -639,7 +633,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -647,11 +640,10 @@
                                                     </select>
                                                 </div>
                                                 <!--BUTTON-->
-                                                <button
+                                                <button onclick="RetrieveItem(this, 'images/Tractor5.jpg', '€200')" name="Mean Green Machine"
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -760,7 +752,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -768,11 +759,10 @@
                                                     </select>
                                                 </div>
                                                 <!--BUTTON-->
-                                                <button
+                                                <button onclick="RetrieveItem(this, 'images/Tractor6.webp', '€35.000')" name="Smurf Machine"
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -882,7 +872,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -890,11 +879,10 @@
                                                     </select>
                                                 </div>
                                                 <!--BUTTON-->
-                                                <button
+                                                <button onclick="RetrieveItem(this, 'images/Tractor7.webp', '€450.000')" name="Beast on Wheels"
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -999,7 +987,6 @@
                                         </div>
                                         <!--SELECT BLOCK-->
                                         <div class="block-select clearfix">
-                                            <form>
                                                 <div class="select-color">
                                                     <span>Available colours</span>
                                                     <select class="color">
@@ -1007,11 +994,10 @@
                                                     </select>
                                                 </div>
                                                 <!--BUTTON-->
-                                                <button
+                                                <button onclick="RetrieveItem(this, 'images/Tractor8.jpg', '€250.000')" name="Bumblebee X250"
                                                     style="width: 90%; margin-left: -0.6%; background-color: rgb(231, 225, 225); margin-top: 3.5%; color: black;"
                                                     class="btn btn-primary"><img src="">Add to
                                                     cart</button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -1032,32 +1018,7 @@
 </div>
 
 <!--Product8--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-        </div>
-
-
-
-
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
-        </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
-
-</html>
-
-                    
-                    
-        <button onclick="RetrieveItem(this, 'images/logo.png')" name="Generic Tractor">Lägg till i kundvagn! :D</button>            
+               
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
@@ -1066,6 +1027,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+
         <script src="js/scripts.js"></script>
     </body>
 </html>

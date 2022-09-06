@@ -9,9 +9,10 @@
 
 
 class CartItem {
-    constructor(name, img) {
+    constructor(name, img, price) {
         this.name = name;
         this.img = img;
+        this.price = price;
     }
 }
 
@@ -21,14 +22,20 @@ function ClearCartList() {
     localStorage.clear();
 }
 
+function InitCart()
+{
+    GetFromLocalStorage();
+    PrintCartItems2();
+    
+}
 
 function reCreateList(arr) {
 
     let newArr = [];
     let i = 0;
     while (i < arr.length) {
-        newArr.push(new CartItem(arr[i], arr[i + 1]))
-        i += 2;
+        newArr.push(new CartItem(arr[i], arr[i + 1], arr[i + 2]))
+        i += 3;
     }
     return newArr;
 }
@@ -37,9 +44,10 @@ let listToStore = [];
 let splitArr = [];
 let identifier = ',';
 
-function RetrieveItem(button, img) {
-    listToStore.push(new CartItem(button.getAttribute("name"), img));
-
+function RetrieveItem(button, img, price) {
+    
+    listToStore.push(new CartItem(button.getAttribute("name"), img, price));
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
     AddIdentifier();
     SetToLocalStorage();
 }
@@ -52,12 +60,13 @@ function AddIdentifier() {
 
     for (let index = 0; index < listToStore.length; index++) {
         const element = listToStore[index];
-        splitArr.push(element.name, identifier, element.img, identifier)
+        splitArr.push(element.name, identifier, element.img, identifier, element.price, identifier)
     }
 
     console.log(listToStore);
     console.log(splitArr);
 }
+
 function SetToLocalStorage() {
 
     localStorage.setItem('item', splitArr);
@@ -65,6 +74,7 @@ function SetToLocalStorage() {
     console.log(str);
 }
 
+                           
 function GetFromLocalStorage() {
     console.log(splitArr);
     let str = localStorage.getItem('item');
@@ -74,40 +84,31 @@ function GetFromLocalStorage() {
         listToStore = reCreateList(tmp.filter(n => n));
         console.log(listToStore);
     }
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
 }
 
-/*function PrintCartItems()
-{   
-    var list = "<tr><th></th><th></th></tr>\n";
 
-    var name;
-    var img;
-
-    for (var i = 0; i < listToStore.length; i++)
-    {
-        name = listToStore[i].name;
-        console.log(name);
-        img = listToStore[i].img;
-        console.log(img);
-        list += "<tr><td>" + name + "</td>\n <td> <img src ='" + img + "'></td> </tr>\n";
-    }
-     
-    document.getElementById('list').innerHTML = list;
-} */
-
-
+function RepopulateList()
+{
+    AddIdentifier();
+    SetToLocalStorage();
+    
+}
 //PrintCardItems2 prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
 function PrintCartItems2() {
 
     var list = '';
     var name;
     var img;
+    var price;
     //code for implementing unique names and images
     for (var i = 0; i < listToStore.length; i++) {
         name = listToStore[i].name;
         console.log(name);
         img = listToStore[i].img;
         console.log(img);
+        price = listToStore[i].price;
+        console.log(price);
         list += '<ul class="cartWrap">' +
         '<li class="items even">' +
         '<div class="infoWrap">' +
@@ -116,13 +117,13 @@ function PrintCartItems2() {
         '</div>' +
         '<div class="cartSection">' +
         '<h3>'+name+'</h3>' +
-        '<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
+        //'<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
         '</div>' +
         '<div class="prodTotal cartSection">' +
-        '<p>$15.00</p>' +
+        '<p>'+price+'</p>' +
         '</div>' +
         '<div class="cartSection removeWrap">' +
-        '<a href="#" class="remove">x</a>' +
+        '<a href="#" class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
         '</div>' +
         '</div>' +
         '<hr>' +
@@ -131,75 +132,18 @@ function PrintCartItems2() {
         //Wall of text above is the html used for each cart item.
     }
 
-    document.getElementById('cart').innerHTML= list;
+    document.getElementById('cart').innerHTML = list;
 }
 
 
-{/* <li class="items even">
-          
-                  <div class="infoWrap">
-                    <div class="cartSection">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus"> In Stock</p>
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                </li>
-          
-                <li class="items odd">
-                  <div class="infoWrap">
-                    <div class="cartSection">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus out"> Out of Stock</p>
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                </li>
-                <li class="items even">
-                  <div class="infoWrap">
-                    <div class="cartSection info">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus"> In Stock</p>
-          
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-          
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                  
-                </li> */}
+
+//removeFromlist Sometimes doesnt remove all the items from the cart. I think it is because the parent remove element doesnt work properly ListToStore still updates with the cart button top right, which matches up with the amount of items left after refreshing.
+
+function RemoveItemFromList(button, i)
+{
+    button.parentElement.parentElement.parentElement.remove();
+    localStorage.removeItem('item')
+    listToStore.splice(i, 1);
+    RepopulateList();
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
+}
