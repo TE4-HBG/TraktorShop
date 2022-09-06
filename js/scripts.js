@@ -123,7 +123,7 @@ function PrintCartItems2() {
         '<p>'+price+'</p>' +
         '</div>' +
         '<div class="cartSection removeWrap">' +
-        '<a href="#" class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
+        '<a class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
         '</div>' +
         '</div>' +
         '<hr>' +
