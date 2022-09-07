@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="min-vh-100">
 
 <head>
   <meta charset="utf-8">
@@ -37,24 +37,19 @@
   <link href="form-validation.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body class="min-vh-100" style="display: flex; flex-direction: column;">
+<!-- Header-->
 
-    <!-- Navigation-->
-    
-
-
-
-  <!-- Header-->
-
-  <header class="py-2">
+  <header class="py-2 bg-light" style="display: flex!important; flex-direction:row;">
       <div class="container px-4 px-lg-5 my-5">
-          <div class="text-center">
-              <h1 class="display-4 fw-bold">Checkout</h1>
+          <div class="row ">
+              <img class="col-md-4" src="images/logo.svg" alt="Tractorshop logo" style="width: 25%; min-width: 150px;margin-left: -2%;">
+              <h1 class="col-md-6 display-4 fw-bold text-center justify-content-center" style="margin-left: 1%;">Checkout</h1>
           </div>
       </div>
   </header>
 
-  <div class="container">
+  <div class="container my-5">
     <main>
 
       <div class="row g-5">
@@ -439,14 +434,17 @@
             </div>
 
             <hr class="my-4">
-
             <button class="w-100 btn btn btn-success btn-lg" type="submit">Continue to checkout</button>
+            
           </form>
         </div>
       </div>
     </main>
   </div>
-
+        <!-- Footer-->
+        <footer class="py-5 bg-light mt-auto">
+          <div class="container"><p class="m-0 text-center text-dark">Copyright &copy; Your Website 2022</p></div>
+      </footer>
 
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
