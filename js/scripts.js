@@ -22,12 +22,14 @@ function ClearCartList() {
     localStorage.clear();
 
     location.reload();
+    CalcTotalPrice();
 }
 
 function InitCart()
 {
     GetFromLocalStorage();
     PrintCartItems();
+    CalcTotalPrice();
     
 }
 
@@ -96,6 +98,7 @@ function RepopulateList()
     AddIdentifier();
     SetToLocalStorage();
     PrintCartItems();
+    CalcTotalPrice();
 }
 //PrintCardtItems prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
 function PrintCartItems() {
@@ -123,7 +126,7 @@ function PrintCartItems() {
         //'<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
         '</div>' +
         '<div class="prodTotal cartSection">' +
-        '<p>'+price+'</p>' +
+        '<p> €'+price+'</p>' +
         '</div>' +
         '<div class="cartSection removeWrap">' +
         '<a class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
@@ -137,7 +140,22 @@ function PrintCartItems() {
     document.getElementById('cart').innerHTML = list;
 }
 
+function CalcTotalPrice()
+{
+    let intPrice = 0;
+    if (listToStore.length > 0)
+    {
+        parseInt(intPrice)
+        for (let i = 0; i < listToStore.length; i++)
+        {
+            intPrice = +intPrice +  +listToStore[i].price
+        }
+    }
 
+    let price = '€'
+    price += intPrice;
+    document.getElementById("totalPrice").innerHTML = price;
+}
 //RemoveItemFromList is a function linked to a button on the page that removes just one single item from the cart list, depending on which button was pressed.
 
 function RemoveItemFromList(button, i)
