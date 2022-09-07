@@ -20,6 +20,8 @@ function ClearCartList() {
     listToStore = [];
 
     localStorage.clear();
+
+    location.reload();
 }
 
 function InitCart()
