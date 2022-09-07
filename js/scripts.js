@@ -55,45 +55,47 @@ function AddIdentifier() {
     //Genom att sätta splitArr till en blank array, lyckas vi undvika problemet där splitArr får till sig extra element efter den hämtas av "localstorage.GetItem".
     //Utan att "tömma" splitArr läggs extra objekt in i arrayen.
     splitArr.length = 0;
-    console.log(splitArr);
+    //console.log(splitArr);
 
     for (let index = 0; index < listToStore.length; index++) {
         const element = listToStore[index];
         splitArr.push(element.name, identifier, element.img, identifier, element.price, identifier)
     }
 
-    console.log(listToStore);
-    console.log(splitArr);
+   // console.log(listToStore);
+    //console.log(splitArr);
 }
 
+//Puts information into the local web storage so that information on our site can be saved through 
 function SetToLocalStorage() {
 
     localStorage.setItem('item', splitArr);
     let str = localStorage.getItem('item');
-    console.log(str);
+    //console.log(str);
 }
 
                            
+//Captures items from our local storage and sets them into our list to be used in the website.
 function GetFromLocalStorage() {
-    console.log(splitArr);
+    //console.log(splitArr);
     let str = localStorage.getItem('item');
     if (str !== null) {
-        console.log(str);
+        //console.log(str);
         let tmp = str.split(identifier);
         listToStore = reCreateList(tmp.filter(n => n));
-        console.log(listToStore);
+        //console.log(listToStore);
     }
     document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
 }
 
-
+//Function used in RemoveItemFromList() to add items back to the list 
 function RepopulateList()
 {
     AddIdentifier();
     SetToLocalStorage();
-    
+    PrintCartItems();
 }
-//PrintCardItems2 prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
+//PrintCardtItems prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
 function PrintCartItems() {
 
     var list = '';
@@ -103,11 +105,11 @@ function PrintCartItems() {
     //code for implementing unique names and images
     for (var i = 0; i < listToStore.length; i++) {
         name = listToStore[i].name;
-        console.log(name);
+        //console.log(name);
         img = listToStore[i].img;
-        console.log(img);
+        //console.log(img);
         price = listToStore[i].price;
-        console.log(price);
+        //console.log(price);
         list += '<ul class="cartWrap">' +
         '<li class="items even">' +
         '<div class="infoWrap">' +
@@ -130,17 +132,18 @@ function PrintCartItems() {
         '</ul>';
         //Wall of text above is the html used for each cart item.
     }
-
     document.getElementById('cart').innerHTML = list;
 }
 
-//removeFromlist Sometimes doesnt remove all the items from the cart. I think it is because the parent remove element doesnt work properly ListToStore still updates with the cart button top right, which matches up with the amount of items left after refreshing.
+
+//RemoveItemFromList is a function linked to a button on the page that removes just one single item from the cart list, depending on which button was pressed.
 
 function RemoveItemFromList(button, i)
 {
     button.parentElement.parentElement.parentElement.remove();
     localStorage.removeItem('item')
     listToStore.splice(i, 1);
+    console.log(listToStore);
     RepopulateList();
     document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
 }
