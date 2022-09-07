@@ -25,7 +25,7 @@ function ClearCartList() {
 function InitCart()
 {
     GetFromLocalStorage();
-    PrintCartItems2();
+    PrintCartItems();
     
 }
 
@@ -44,8 +44,7 @@ let listToStore = [];
 let splitArr = [];
 let identifier = ',';
 
-function RetrieveItem(button, img, price) {
-    
+function RetrieveItem(button, img, price) {    
     listToStore.push(new CartItem(button.getAttribute("name"), img, price));
     document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
     AddIdentifier();
@@ -95,7 +94,7 @@ function RepopulateList()
     
 }
 //PrintCardItems2 prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
-function PrintCartItems2() {
+function PrintCartItems() {
 
     var list = '';
     var name;
@@ -134,8 +133,6 @@ function PrintCartItems2() {
 
     document.getElementById('cart').innerHTML = list;
 }
-
-
 
 //removeFromlist Sometimes doesnt remove all the items from the cart. I think it is because the parent remove element doesnt work properly ListToStore still updates with the cart button top right, which matches up with the amount of items left after refreshing.
 
