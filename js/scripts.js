@@ -9,31 +9,36 @@
 
 
 class CartItem {
-    constructor(name, img)
-    {
+    constructor(name, img, price) {
         this.name = name;
         this.img = img;
+        this.price = price;
     }
 }
 
-function ClearCartList()
-{
+function ClearCartList() {
     listToStore = [];
 
     localStorage.clear();
+
+    location.reload();
 }
 
-
-function reCreateList(arr) 
+function InitCart()
 {
+    GetFromLocalStorage();
+    PrintCartItems();
     
+}
+
+function reCreateList(arr) {
+
     let newArr = [];
     let i = 0;
-    while (i < arr.length)
-    {
-        newArr.push(new CartItem(arr[i], arr[i+1]))
-        i += 2;
-    } 
+    while (i < arr.length) {
+        newArr.push(new CartItem(arr[i], arr[i + 1], arr[i + 2]))
+        i += 3;
+    }
     return newArr;
 }
 
@@ -41,153 +46,106 @@ let listToStore = [];
 let splitArr = [];
 let identifier = ',';
 
-function RetrieveItem (button, img)
-{
-    listToStore.push(new CartItem(button.getAttribute("name"), img));
-
+function RetrieveItem(button, img, price) {    
+    listToStore.push(new CartItem(button.getAttribute("name"), img, price));
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
     AddIdentifier();
     SetToLocalStorage();
 }
 
-function AddIdentifier()
-{
+function AddIdentifier() {
     //Genom att sätta splitArr till en blank array, lyckas vi undvika problemet där splitArr får till sig extra element efter den hämtas av "localstorage.GetItem".
     //Utan att "tömma" splitArr läggs extra objekt in i arrayen.
-    splitArr.length = 0;  
-    console.log(splitArr); 
+    splitArr.length = 0;
+    //console.log(splitArr);
 
     for (let index = 0; index < listToStore.length; index++) {
-        const element = listToStore[index];        
-        splitArr.push(element.name, identifier, element.img, identifier)
+        const element = listToStore[index];
+        splitArr.push(element.name, identifier, element.img, identifier, element.price, identifier)
     }
 
-    console.log(listToStore);
-    console.log(splitArr);
-}
-function SetToLocalStorage()
-{
-    
-   localStorage.setItem('item', splitArr);
-   let str = localStorage.getItem('item');
-   console.log(str);
+   // console.log(listToStore);
+    //console.log(splitArr);
 }
 
-function GetFromLocalStorage()
-{
-    console.log(splitArr);
+//Puts information into the local web storage so that information on our site can be saved through 
+function SetToLocalStorage() {
+
+    localStorage.setItem('item', splitArr);
     let str = localStorage.getItem('item');
-    if (str !== null)
-    {
-        console.log(str); 
+    //console.log(str);
+}
+
+                           
+//Captures items from our local storage and sets them into our list to be used in the website.
+function GetFromLocalStorage() {
+    //console.log(splitArr);
+    let str = localStorage.getItem('item');
+    if (str !== null) {
+        //console.log(str);
         let tmp = str.split(identifier);
         listToStore = reCreateList(tmp.filter(n => n));
-        console.log(listToStore);
+        //console.log(listToStore);
     }
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
 }
 
-
-function PrintCartItems()
+//Function used in RemoveItemFromList() to add items back to the list 
+function RepopulateList()
 {
-    var list = "<tr><th></th><th></th></tr>\n";
+    AddIdentifier();
+    SetToLocalStorage();
+    PrintCartItems();
+}
+//PrintCardtItems prints every single item in the cart by first writing their HTML to a variable, then through a for-loop, changing certain values such as "name" to be personalized for every item.
+function PrintCartItems() {
 
+    var list = '';
     var name;
     var img;
-
-    for (var i = 0; i < listToStore.length; i++)
-    {
+    var price;
+    //code for implementing unique names and images
+    for (var i = 0; i < listToStore.length; i++) {
         name = listToStore[i].name;
-        console.log(name);
+        //console.log(name);
         img = listToStore[i].img;
-        console.log(img);
-		list += "<tr><td>" + name + "</td>\n <td> <img src ='" + img + "'></td> </tr>\n";
+        //console.log(img);
+        price = listToStore[i].price;
+        //console.log(price);
+        list += '<ul class="cartWrap">' +
+        '<li class="items even">' +
+        '<div class="infoWrap">' +
+        '<div class="img-fluid">' +
+        '<img src="'+img+'">' +
+        '</div>' +
+        '<div class="cartSection">' +
+        '<h3>'+name+'</h3>' +
+        //'<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
+        '</div>' +
+        '<div class="prodTotal cartSection">' +
+        '<p>'+price+'</p>' +
+        '</div>' +
+        '<div class="cartSection removeWrap">' +
+        '<a class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
+        '</div>' +
+        '</div>' +
+        '<hr>' +
+        '</li>' +
+        '</ul>';
+        //Wall of text above is the html used for each cart item.
     }
-     
-    document.getElementById('list').innerHTML = list;
-
-
-
+    document.getElementById('cart').innerHTML = list;
 }
 
 
+//RemoveItemFromList is a function linked to a button on the page that removes just one single item from the cart list, depending on which button was pressed.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <li class="items even">
-          
-                  <div class="infoWrap">
-                    <div class="cartSection">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus"> In Stock</p>
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                </li>
-          
-                <li class="items odd">
-                  <div class="infoWrap">
-                    <div class="cartSection">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus out"> Out of Stock</p>
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                </li>
-                <li class="items even">
-                  <div class="infoWrap">
-                    <div class="cartSection info">
-          
-                      <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-                      <p class="itemNumber">#QUE-007544-002</p>
-                      <h3>Item Name 1</h3>
-          
-                      <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
-          
-                      <p class="stockStatus"> In Stock</p>
-          
-                    </div>
-          
-                    <div class="prodTotal cartSection">
-                      <p>$15.00</p>
-                    </div>
-          
-                    <div class="cartSection removeWrap">
-                      <a href="#" class="remove">x</a>
-                    </div>
-                  </div>
-                  
-                </li> */}
+function RemoveItemFromList(button, i)
+{
+    button.parentElement.parentElement.parentElement.remove();
+    localStorage.removeItem('item')
+    listToStore.splice(i, 1);
+    console.log(listToStore);
+    RepopulateList();
+    document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
+}

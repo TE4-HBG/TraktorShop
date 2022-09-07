@@ -17,12 +17,13 @@
 
 </head>
 
-<body onload="PrintCartItems()" >
-<script> GetFromLocalStorage()</script>
+<body onload="InitCart()" style=" min-height: 100vh; display: flex; flex-direction: column;">
+
+  <script>GetFromLocalStorage</script>
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="#!"><img src="images/logo.svg"></a>
+      <a class="navbar-brand" href="index.html"><img src="images/logo.svg"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
@@ -30,13 +31,18 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="aboutpage.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="products.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="products.html" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="products.html">All Products</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="products.html">Popular Items</a></li>
-                <li><a class="dropdown-item" href="products.html">New Arrivals</a></li>
+              <li><a class="dropdown-item" href="products.html">All Products</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="products.html">Popular Items</a></li>
+              <li><a class="dropdown-item" href="products.html">New Arrivals</a></li>
             </ul>
           </li>
         </ul>
@@ -44,8 +50,8 @@
           <a href="cart.html" <button class="btn btn-outline-dark" type="submit">
             <i class="bi-cart-fill me-1"></i>
             Cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-        </button></a>
+            <span class="badge bg-dark text-white ms-1 rounded-pill" id="itemNumberDisplay">0</span>
+            </button></a>
         </form>
       </div>
     </div>
@@ -62,27 +68,50 @@
 
 
 
-
-  <div class="container">
+  <!-- Html of old cart-->
+  <!-- <div class="container">
     <div class="row">
       <div class="col-5">
-        <form  name=ShoppingList>
-            <div id="items_table">
-                <table id=list></table>
-            </div>
+        <form name=ShoppingList>
+          <div id="items_table">
+            <table id=list></table>
+          </div>
         </form>
-        </div>
+      </div>
+    </div>
+  </div>  -->
+
+
+  <!-- HTML intregrated -->
+
+  <div class="wrap cf">
+    <h1 class="projTitle">Shopping Cart</h1>
+    <div class="heading cf">
+      <h1>My Cart</h1>
+
+      <a href="products.html" class="continue">Continue Shopping</a>
+    </div>
+    <div class="cart" id="cart">
+
+    <!--HTML created with javascript goes here-->  
+    
+     
+    </div>
+    <button class ="btn" onclick="ClearCartList()">Clear Cart</button>
+    <div class="subtotal cf">
+      <ul>
+        <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
+        <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
+      </ul>
     </div>
   </div>
 
 
 
 
-  <div class="subtotal cf">
-    <ul>
-      <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
 
-      <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
+  <!-- Footer -->
+
 
       <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
       <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
@@ -91,6 +120,9 @@
   </div>
   </div>
   <footer class="py-5 bg-dark">
+
+  <footer class="py-5 bg-dark footer">
+
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
     </div>
