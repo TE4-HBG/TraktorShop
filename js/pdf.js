@@ -27,7 +27,8 @@ class CartItem {
   }
 
 
-listToStore = [];   
+listToStore = []; 
+let userInfo; 
 
 function GetFromLocalStorage() {
     //console.log(splitArr);
@@ -95,11 +96,23 @@ function PrintCartItems() {
             '</tr>';
 
     }
+    
+    // userInfo = 
+    // '<li>' +
+    //     '<h5 class="my-2">' + usrName + '</h5>' +
+    // '</li>' +
+    // '<li>' + street + '</li>' +
+    // '<li>23 BB Lane</li>' +
+    // '<li>' + country + '</li>' +
+    // '<li>' + zip + '</li>' +
+    // '<li><a href="#" data-abc="true">' + email + '</a></li>';
+
+
+
+    // document.getElementById('printUserHere').innerHTML = userInfo;
 
     document.getElementById('subTotal').innerHTML = '€ ' + CalcTotalPrice();
-
     document.getElementById('taxedTotal').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
-    
     document.getElementById('printHere').innerHTML = list;
 }
 
