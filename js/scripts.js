@@ -193,9 +193,9 @@ function zoomIMG(me) {
     tmp = document.getElementById('focusContainer').innerHTML;
     tmp =
 
-    '<div class="d-flex mx-auto justify-content-center flex-md-row align-items-center">' +
+    '<div class="container d-flex mx-auto justify-content-center flex-md-row align-items-center">' +
     '<button onClick="closeZoom()" class="btn btn-light col-md-1 fw-bolder">X</button>' +
-    '<img class="col-md-12 mx-5" id="focusIMG" src="man.jpg" alt="" srcset="">' +
+    '<img class="col-md-8 col-xs-8 mx-4" id="focusIMG" src="man.jpg" alt="" srcset="">' +
     '</div>';
     document.getElementById('focusContainer').innerHTML = tmp;
     document.getElementById('focusContainer').classList.add('d-flex', 'justify-content-center', 'flex-md-row', 'align-items-center');
