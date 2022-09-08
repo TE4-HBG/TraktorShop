@@ -72,7 +72,7 @@ function PrintCartItems() {
           '<h6 class="my-0">'+ name + '</h6>' +
           '<small class="text-muted">A Tractor</small>' +
         '</div>' +
-        '<span class="text-muted">€'+ price + '</span>' + 
+        '<span class="text-muted">€ '+ numberWithSpaces(price) + '</span>' + 
       '</li>';
       
   }
@@ -80,7 +80,7 @@ function PrintCartItems() {
   list += '<li class="list-group-item d-flex justify-content-between">' +
   '<span>Total </span>' +
   '<strong>' + 
-  '</strong>' + CalcTotalPrice();
+  '</strong>€ ' + numberWithSpaces(CalcTotalPrice());
   '</li>';
 
   document.getElementById('printHere').innerHTML = list;
@@ -98,7 +98,12 @@ function CalcTotalPrice()
         }
     }
 
-    let euro = '€'
-    euro += intPrice;
-    return euro;
+ 
+    return intPrice;
+
+}
+
+//converts a normal int to one with spaces every third number. exampel 3618723678 -> 3 618 723 678
+function numberWithSpaces(xHMM) {
+  return xHMM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }

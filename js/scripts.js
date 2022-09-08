@@ -138,7 +138,7 @@ function PrintCartItems() {
         //'<p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>' +
         '</div>' +
         '<div class="prodTotal cartSection">' +
-        '<p> €'+price+'</p>' +
+        '<p> € '+numberWithSpaces(price)+'</p>' +
         '</div>' +
         '<div class="cartSection removeWrap">' +
         '<a class="remove" onclick="RemoveItemFromList(this, '+i+')">x</a>' +
@@ -165,9 +165,10 @@ function CalcTotalPrice()
         }
     }
 
-    let price = '€'
+    let price = ''
     price += intPrice;
-    document.getElementById("totalPrice").innerHTML = price;
+    //price = price.match(/.{1,3}/g).join(' ');
+    document.getElementById("totalPrice").innerHTML = '€ ' + numberWithSpaces(intPrice);
 }
 //RemoveItemFromList is a function linked to a button on the page that removes just one single item from the cart list, depending on which button was pressed.
 
@@ -179,4 +180,10 @@ function RemoveItemFromList(button, i)
     console.log(listToStore);
     RepopulateList();
     document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
+}
+
+
+//converts a normal int to one with spaces every third number. exampel 3618723678 -> 3 618 723 678
+function numberWithSpaces(xHMM) {
+    return xHMM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
