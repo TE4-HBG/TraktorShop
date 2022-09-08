@@ -14,3 +14,10 @@ window.onload = function () {
             html2pdf().from(invoice).set(opt).save();
         })
 }
+
+
+
+
+//make the js load in all the items from the cart. name, price and images
+
+//then make so the relavente things in the template that should have info from the prevoius checkout page. like shipping adress and name
