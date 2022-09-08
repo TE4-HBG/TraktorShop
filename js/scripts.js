@@ -187,27 +187,28 @@ function RemoveItemFromList(button, i)
 function numberWithSpaces(xHMM) {
     return xHMM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+//zoom fucntion for all clickable images, passes the image itself in as 'me'    -----  this whole function and thing works by constantly having a div and img that are both empty and 0 with and height and when a image is pressed the div fills up the entier screen and then the image gets it source attribute (src) set to the image that was clicked. a button is then added with a function to reverse everything and lastly some bootstrap classes are used to make everything centered
 function zoomIMG(me) {
     console.log(me.src);   
     
-    tmp = document.getElementById('focusContainer').innerHTML;
-    tmp =
-
+    //adds the ""close"" button and some classes for the image
+    newFocusContainer =
     '<div class="container d-flex mx-auto justify-content-center flex-md-row align-items-center">' +
     '<button onClick="closeZoom()" class="btn btn-light col-md-1 fw-bolder">X</button>' +
     '<img class="col-md-8 col-xs-8 mx-4" id="focusIMG" src="man.jpg" alt="" srcset="">' +
     '</div>';
-    document.getElementById('focusContainer').innerHTML = tmp;
-    document.getElementById('focusContainer').classList.add('d-flex', 'justify-content-center', 'flex-md-row', 'align-items-center');
-    document.getElementById('focusIMG').src = me.src;
-    document.getElementById('focusContainer').style.height = '100vh';
+    document.getElementById('focusContainer').innerHTML = newFocusContainer;
+    document.getElementById('focusContainer').classList.add('d-flex', 'justify-content-center', 'flex-md-row', 'align-items-center'); //gives a new div all the bootstrap classes it needs to be centered and stuff
+    document.getElementById('focusIMG').src = me.src; //sets the image 
+    document.getElementById('focusContainer').style.height = '100vh'; //these needs to be set separetly
     document.getElementById('focusContainer').style.width = '100vw';
     
 }
-function forceZoomIMG(path) {
+function forceZoomIMG(path) { //force the zoomed image to display and image, the "path" is an image location
     document.getElementById('focusIMG').src = path;
 }
-function closeZoom() {
+function closeZoom() { //empties the zoom container and zoom image. basically just resets it
     document.getElementById('focusContainer').innerHTML = '<img src="" alt="" id="focusIMG">';
     document.getElementById('focusContainer').className = '';
     document.getElementById('focusContainer').style.height = '0vh';
