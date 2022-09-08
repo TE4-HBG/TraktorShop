@@ -126,6 +126,7 @@ function PrintCartItems() {
 
     document.getElementById('subTotal').innerHTML = '€ ' + CalcTotalPrice();
     document.getElementById('taxedTotal').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
+    document.getElementById('taxedTotal2').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
     document.getElementById('printHere').innerHTML = list;
 }
 
