@@ -14,3 +14,4 @@ window.onload = function () {
             html2pdf().from(invoice).set(opt).save();
         })
 }
+
