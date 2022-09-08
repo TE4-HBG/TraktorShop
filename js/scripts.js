@@ -187,3 +187,29 @@ function RemoveItemFromList(button, i)
 function numberWithSpaces(xHMM) {
     return xHMM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+function zoomIMG(me) {
+    console.log(me.src);   
+    
+    tmp = document.getElementById('focusContainer').innerHTML;
+    tmp =
+
+    '<div class="d-flex mx-auto justify-content-center flex-md-row align-items-center">' +
+    '<button onClick="closeZoom()" class="btn btn-light col-md-1 fw-bolder">X</button>' +
+    '<img class="col-md-12 mx-5" id="focusIMG" src="man.jpg" alt="" srcset="">' +
+    '</div>';
+    document.getElementById('focusContainer').innerHTML = tmp;
+    document.getElementById('focusContainer').classList.add('d-flex', 'justify-content-center', 'flex-md-row', 'align-items-center');
+    document.getElementById('focusIMG').src = me.src;
+    document.getElementById('focusContainer').style.height = '100vh';
+    document.getElementById('focusContainer').style.width = '100vw';
+    
+}
+function forceZoomIMG(path) {
+    document.getElementById('focusIMG').src = path;
+}
+function closeZoom() {
+    document.getElementById('focusContainer').innerHTML = '<img src="" alt="" id="focusIMG">';
+    document.getElementById('focusContainer').className = '';
+    document.getElementById('focusContainer').style.height = '0vh';
+    document.getElementById('focusContainer').style.width = '0vw';
+}
