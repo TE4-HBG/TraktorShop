@@ -19,6 +19,40 @@
     })
 })()
 
+class CartItem {
+  constructor(name, img, price) {
+      this.name = name;
+      this.img = img;
+      this.price = price;
+  }
+}
+
+let listToStore = [];
+let identifier = ',';
+
+function GetFromLocalStorage() {
+  //console.log(splitArr);
+  let str = localStorage.getItem('item');
+  if (str !== null) {
+      //console.log(str);
+      let tmp = str.split(identifier);
+      listToStore = reCreateList(tmp.filter(n => n));
+      //console.log(listToStore);
+  }
+  document.getElementById('itemNumberDisplay').innerHTML = listToStore.length;
+  PrintCartItems();
+}
+
+function reCreateList(arr) {
+
+  let newArr = [];
+  let i = 0;
+  while (i < arr.length) {
+      newArr.push(new CartItem(arr[i], arr[i + 1], arr[i + 2]))
+      i += 3;
+  }
+  return newArr;
+}
 
 function PrintCartItems() {
 
@@ -29,41 +63,42 @@ function PrintCartItems() {
   //code for implementing unique names and images
   for (var i = 0; i < listToStore.length; i++) {
       name = listToStore[i].name;
-      //console.log(name);
       img = listToStore[i].img;
-      //console.log(img);
       price = listToStore[i].price;
-      //console.log(price);
 
-//note för själv. imorgon gå igenom vad som ska generaras i for loopen och börja byta ut variablar som du tar ner från list to store
-
-
-      list += '<li class="list-group-item d-flex justify-content-between lh-sm">' +
-      '<div>' + 
-        '<h6 class="my-0">Product name</h6>' +
-        '<small class="text-muted">Brief description</small>' +
-      '</div>' +
-      '<span class="text-muted">$12</span>' + 
-    '</li>' +
-    '<li class="list-group-item d-flex justify-content-between lh-sm">' +
-      '<div>' +
-        '<h6 class="my-0">Second product</h6>' +
-        '<small class="text-muted">Brief description</small>' +
-      '</div>' +
-      '<span class="text-muted">$8</span>' +
-    '</li>' +
-    '<li class="list-group-item d-flex justify-content-between lh-sm">' +
-      '<div>' +
-        '<h6 class="my-0">Third item</h6>' +
-        '<small class="text-muted">Brief description</small>' +
-      '</div>' +
-      '<span class="text-muted">$5</span>' +
-    '</li>' +
-    '<li class="list-group-item d-flex justify-content-between">' +
-    '  <span>Total (USD)</span>' +
-    '  <strong>$20</strong>' +
-    '</li>';
+      list += 
+      '<li class="list-group-item d-flex justify-content-between lh-sm">' +
+        '<div>' + 
+          '<h6 class="my-0">'+ name + '</h6>' +
+          '<small class="text-muted">A Tractor</small>' +
+        '</div>' +
+        '<span class="text-muted">€'+ price + '</span>' + 
+      '</li>';
       
   }
+
+  list += '<li class="list-group-item d-flex justify-content-between">' +
+  '<span>Total </span>' +
+  '<strong>' + 
+  '</strong>' + CalcTotalPrice();
+  '</li>';
+
   document.getElementById('printHere').innerHTML = list;
+}
+
+function CalcTotalPrice()
+{
+    let intPrice = 0;
+    if (listToStore.length > 0)
+    {
+        parseInt(intPrice)
+        for (let i = 0; i < listToStore.length; i++)
+        {
+            intPrice = +intPrice +  +listToStore[i].price
+        }
+    }
+
+    let euro = '€'
+    euro += intPrice;
+    return euro;
 }
