@@ -75,7 +75,6 @@ function SetToLocalStorage() {
     let str = localStorage.getItem('item');
     //console.log(str);
 }
-
                            
 //Captures items from our local storage and sets them into our list to be used in the website.
 function GetFromLocalStorage() {
