@@ -18,9 +18,6 @@
       }, false)
     })
 })()
-<<<<<<< Updated upstream
-=======
-
 
 class CartItem {
   constructor(name, img, price) {
@@ -105,4 +102,3 @@ function CalcTotalPrice()
     euro += intPrice;
     return euro;
 }
->>>>>>> Stashed changes
