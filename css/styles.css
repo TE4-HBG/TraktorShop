@@ -11587,3 +11587,7 @@ select.size {
   border-radius: 100%;
   font-weight: bolder;
 }
+
+.footer {
+  margin-top: auto;  
+}
