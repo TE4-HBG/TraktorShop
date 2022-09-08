@@ -15,3 +15,96 @@ window.onload = function () {
         })
 }
 
+
+//here is out copy pasted code for the print functions
+
+class CartItem {
+    constructor(name, img, price) {
+        this.name = name;
+        this.img = img;
+        this.price = price;
+    }
+  }
+
+
+listToStore = [];   
+
+function GetFromLocalStorage() {
+    //console.log(splitArr);
+    let str = localStorage.getItem('item');
+    if (str !== null) {
+        //console.log(str);
+        let tmp = str.split(',');
+        listToStore = reCreateList(tmp.filter(n => n));
+        //console.log(listToStore);
+    }
+    PrintCartItems();
+  }
+  
+  function reCreateList(arr) {
+  
+    let newArr = [];
+    let i = 0;
+    while (i < arr.length) {
+        newArr.push(new CartItem(arr[i], arr[i + 1], arr[i + 2]))
+        i += 3;
+    }
+    return newArr;
+  }
+
+
+  function CalcTotalPrice()
+  {
+      let intPrice = 0;
+      if (listToStore.length > 0)
+      {
+          parseInt(intPrice)
+          for (let i = 0; i < listToStore.length; i++)
+          {
+              intPrice = +intPrice +  +listToStore[i].price
+          }
+      }
+  
+      return intPrice;
+  }
+  
+
+
+
+function PrintCartItems() {
+
+    var list = '';
+    var name;
+    var img;
+    var price;
+    //code for implementing unique names and images
+    for (var i = 0; i < listToStore.length; i++) {
+        name = listToStore[i].name;
+        img = listToStore[i].img;
+        price = listToStore[i].price;
+        console.log('the price for ' + name + ' is ' + price);
+        list +=
+            '<tr>' +
+                '<td>' +
+                    '<h6 class="mb-0">' + name +
+                    '</h6> <span class="text-muted">in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit</span>' +
+                '</td>' +
+
+                '<td><span class="font-weight-semibold">€'+ price +
+                '</span></td>' +
+            '</tr>';
+
+    }
+
+    document.getElementById('subTotal').innerHTML = '€ ' + CalcTotalPrice();
+
+    document.getElementById('taxedTotal').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
+    
+    document.getElementById('printHere').innerHTML = list;
+}
+
+
+//make the js load in all the items from the cart. name, price and images
+
+//then make so the relavente things in the template that should have info from the prevoius checkout page. like shipping adress and name
+
