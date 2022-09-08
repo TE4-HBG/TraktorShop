@@ -45,35 +45,22 @@
 
     <!-- Header-->
     <header style="overflow: hidden; height: 40vh;" class="bg-dark opacity-50">
-
-
-        </div>
         <div class="blurry">
-
-            <video style=" margin: 0%; display: block; position: flex; width: 100%;" autoplay muted loop id="myVideo">
+            <video style="margin: 0%; display: block; position: flex; width: 100%;" autoplay muted loop id="myVideo">
                 <source src="images/video.mp4" type="video/mp4">
-
                 Your browser does not support HTML5 video.
             </video>
-
-            <div class=" container px-4 px-lg-5 my-5">
-
-
-            </div>
-    </header>
-
-
-    <header class="">
-        <div class="container px-4 px-lg-5 my-5 overlay">
-            <div class="text-center">
-                <h1 class="display-1 fw-bolder">THE BEST TRACTOR SHOP EVER</h1>
-            </div>
         </div>
     </header>
 
+    <!--Title is not responsive. Gör en onclick kanske...-->
+    <div class="container px-4 px-lg-5 my-5 overlay">
+        <div class="text-center">
+            <h1 class="display-1 fw-bolder" style="z-index: 1;">THE BEST TRACTOR SHOP EVER</h1>
+        </div>
+    </div>
 
     <!--Product1--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
 
     <!-- Section-->
     <section class="py-5">
@@ -88,6 +75,14 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Blue Master X5000</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
                                 <!-- Product price-->
                                 €900.000
                             </div>
@@ -1026,7 +1021,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+            <p class="m-0 text-center text-white"></p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->

@@ -15,6 +15,7 @@ window.onload = function () {
         })
 }
 
+
 //here is out copy pasted code for the print functions
 
 class CartItem {
@@ -106,3 +107,4 @@ function PrintCartItems() {
 //make the js load in all the items from the cart. name, price and images
 
 //then make so the relavente things in the template that should have info from the prevoius checkout page. like shipping adress and name
+
