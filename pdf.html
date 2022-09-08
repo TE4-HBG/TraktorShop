@@ -16,7 +16,10 @@
 <body onload="GetFromLocalStorage()">
     <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
-            <div class="col-md-12 text-right mb-3">
+            <div class="col-md-6 text-right mb-3">
+                <button class="btn opacity-0" style="color: #eee;" onclick="location.href = 'index.html';"> ___</button>
+            </div>
+            <div class="col-md-6 text-right mb-3">
                 <button class="btn btn-primary" id="download" onclick="makePDF()"> download pdf</button>
             </div>
             <div class="col-md-12">
@@ -76,7 +79,7 @@
                                     </ul>
                                     <ul class="list list-unstyled text-right mb-0 ml-auto">
                                         <li>
-                                            <h5 class="font-weight-semibold my-2">$1,090</h5>
+                                            <h5 class="font-weight-semibold my-2" id="taxedTotal">$1,090</h5>
                                         </li>
                                         <li><span class="font-weight-semibold">Hong Kong Bank</span></li>
                                         <li>Hong Kong</li>
