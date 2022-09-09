@@ -11698,7 +11698,7 @@ a.remove:hover {
 }
 .subtotal .totalRow .value {
   letter-spacing: -.025em;
-  width: 35%;
+
 }
 
 @media only screen and (max-width: 39.375em) {

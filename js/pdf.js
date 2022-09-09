@@ -79,7 +79,7 @@ function GetFromLocalStorage() {
           }
       }
   
-      return intPrice;
+      return  intPrice;
   }
   
 
@@ -104,7 +104,7 @@ function PrintCartItems() {
                     '</h6> <span class="text-muted">in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit</span>' +
                 '</td>' +
 
-                '<td><span class="font-weight-semibold">€'+ price +
+                '<td><span class="font-weight-semibold">€ '+ numberWithSpaces( price) +
                 '</span></td>' +
             '</tr>';
 
@@ -124,9 +124,9 @@ function PrintCartItems() {
 
     // document.getElementById('printUserHere').innerHTML = userInfo;
 
-    document.getElementById('subTotal').innerHTML = '€ ' + CalcTotalPrice();
-    document.getElementById('taxedTotal').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
-    document.getElementById('taxedTotal2').innerHTML = '€ ' + CalcTotalPrice() * 1.25;
+    document.getElementById('subTotal').innerHTML = '€ ' + numberWithSpaces( CalcTotalPrice());
+    document.getElementById('taxedTotal').innerHTML = '€ ' + numberWithSpaces( CalcTotalPrice() * 1.25);
+    document.getElementById('taxedTotal2').innerHTML = '€ ' + numberWithSpaces( CalcTotalPrice() * 1.25);
     document.getElementById('printHere').innerHTML = list;
 }
 
@@ -135,3 +135,7 @@ function PrintCartItems() {
 
 //then make so the relavente things in the template that should have info from the prevoius checkout page. like shipping adress and name
 
+//converts a normal int to one with spaces every third number. exampel 3618723678 -> 3 618 723 678
+function numberWithSpaces(xHMM) {
+    return xHMM.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
