@@ -11566,3 +11566,18 @@ select.size {
 }
 
 
+#annoying-header-text {
+  display: visible;
+}
+
+@media screen and (max-width: 970px) {
+  #annoying-header-text {
+    display: none;
+  }
+
+}
+@media screen and (min-width: 1000px) {
+  #myVideo {
+    width: 100%;
+  }     
+}
