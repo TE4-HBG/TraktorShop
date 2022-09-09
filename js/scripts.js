@@ -49,7 +49,7 @@ function ReCreateList(arr) {
     return newArr;
 }
 
-//Variables used in the process of setting and getting information from and to the local storage.
+//Variables used in the process of setting and getting information from and to the local storage.s
 let listToStore = [];
 let splitArr = [];
 let identifier = ',';
@@ -196,7 +196,7 @@ function zoomIMG(me) {
     newFocusContainer =
     '<div class="container d-flex mx-auto justify-content-center flex-md-row align-items-center">' +
     '<button onClick="closeZoom()" class="btn btn-light col-md-1 fw-bolder">X</button>' +
-    '<img class="col-md-8 col-xs-8 mx-4" id="focusIMG" src="man.jpg" alt="" srcset="">' +
+    '<img class="col-md-8 col-xs-6 mx-4" id="focusIMG" src="man.jpg" alt="" srcset="">' +
     '</div>';
     document.getElementById('focusContainer').innerHTML = newFocusContainer;
     document.getElementById('focusContainer').classList.add('d-flex', 'justify-content-center', 'flex-md-row', 'align-items-center'); //gives a new div all the bootstrap classes it needs to be centered and stuff
