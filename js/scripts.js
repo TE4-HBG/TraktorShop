@@ -49,7 +49,7 @@ function ReCreateList(arr) {
     return newArr;
 }
 
-//Variables used in the process of setting and getting information from and to the local storage.s
+//Variables used in the process of setting and getting information from and to the local storage.
 let listToStore = [];
 let splitArr = [];
 let identifier = ',';
